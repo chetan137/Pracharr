@@ -1,9 +1,7 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Services = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = true; // Handled by parent scroll component
 
   const services = [
     {
@@ -50,7 +48,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="section services" ref={ref}>
+    <section id="services" className="section services" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '100px 0', position: 'relative', zIndex: 2 }}>
       <div className="container">
         <motion.div
           className="section-header"

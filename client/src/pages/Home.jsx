@@ -8,7 +8,17 @@ import Founders from '../components/sections/Founders';
 import Testimonials from '../components/sections/Testimonials';
 import Contact from '../components/sections/Contact';
 import Footer from '../components/Footer';
-import { LayeredPanel } from '../components/StackedScroll';
+import StorytellingScroll from '../components/StorytellingScroll';
+import VideoShowcase from '../components/sections/VideoShowcase';
+
+const sectionStyle = {
+  minHeight: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '100px 0',
+  position: 'relative',
+  zIndex: 2
+};
 
 const Home = () => {
   return (
@@ -24,64 +34,37 @@ const Home = () => {
       {/* Navigation */}
       <Navbar />
 
-      {/* Main Content */}
-      <main className="stacked-scroll-container">
-        {/* Hero Section - No layered effect, stays fixed feel */}
-        <Hero />
+      {/* Hero Section */}
+      <Hero />
 
-        {/* Divider */}
-        <LayeredPanel className="layered-panel--primary">
-          <div className="divider" style={{ margin: '0 auto', width: '80%' }} />
-        </LayeredPanel>
+      {/* Storytelling Content Group 1 */}
+      <StorytellingScroll
+        id="story-group-1"
+        sections={[
+          { content: <div style={sectionStyle}><Philosophy /></div>, direction: 'left' },
+          { content: <div style={sectionStyle}><Services /></div>, direction: 'right' }
+        ]}
+      />
 
-        {/* Philosophy Section */}
-        <LayeredPanel
-          className="layered-panel--primary"
-          style={{ overflow: 'hidden' }}
-        >
-          <Philosophy />
-        </LayeredPanel>
+      {/* Video Showcase Section (Keep as is) */}
+      <VideoShowcase />
 
-        {/* Services Section */}
-        <LayeredPanel
-          className="layered-panel--dark"
-          style={{ overflow: 'hidden' }}
-        >
-          <Services />
-        </LayeredPanel>
+      {/* Storytelling Content Group 2 */}
+      <StorytellingScroll
+        id="story-group-2"
+        sections={[
+          { content: <div style={sectionStyle}><CaseStudies /></div>, direction: 'bottom' },
+          { content: <div style={sectionStyle}><Founders /></div>, direction: 'left' },
+          { content: <div style={sectionStyle}><Testimonials /></div>, direction: 'right' }
+        ]}
+      />
 
-        {/* Case Studies Section */}
-        <LayeredPanel
-          className="layered-panel--gradient"
-          style={{ overflow: 'hidden' }}
-        >
-          <CaseStudies />
-        </LayeredPanel>
-
-        {/* Founders Section */}
-        <LayeredPanel
-          className="layered-panel--primary"
-          style={{ overflow: 'hidden' }}
-        >
-          <Founders />
-        </LayeredPanel>
-
-        {/* Testimonials Section */}
-        <LayeredPanel
-          className="layered-panel--dark"
-          style={{ overflow: 'hidden' }}
-        >
-          <Testimonials />
-        </LayeredPanel>
-
-        {/* Contact Section */}
-
-      </main>
+      {/* Contact Section */}
+      {/* <Contact /> */}
 
       {/* Footer */}
-      <LayeredPanel className="layered-panel--dark">
-        <Footer />
-      </LayeredPanel>
+      <Footer />
+
     </motion.div>
   );
 };

@@ -1,9 +1,7 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Philosophy = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = true; // Handled by parent scroll component
 
   const cardData = [
     { icon: '🎯', title: 'Strategy First', desc: 'Every stroke of creativity begins with strategy' },
@@ -29,14 +27,12 @@ const Philosophy = () => {
   };
 
   return (
-    <section id="philosophy" className="section philosophy" ref={ref}>
+    <section id="philosophy" className="section philosophy" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '100px 0', position: 'relative', zIndex: 2 }}>
       <div className="container">
         <div className="philosophy-content">
           <motion.div
             className="philosophy-text"
-            initial={{ opacity: 0, x: -80 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 1, x: 0 }}
           >
             <motion.span
               className="tagline"

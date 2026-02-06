@@ -1,9 +1,7 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Founders = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = true; // Handled by parent scroll component
 
   const founders = [
     {
@@ -25,7 +23,7 @@ const Founders = () => {
   ];
 
   return (
-    <section id="founders" className="section founders" ref={ref}>
+    <section id="founders" className="section founders">
       <div className="container">
         <motion.div
           className="section-header"

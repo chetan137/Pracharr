@@ -47,9 +47,9 @@ const Navbar = () => {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
-                प्र
+                प्र-4
               </motion.span>
-              Pracharr
+              PRACHARR
             </Link>
 
             <ul className="nav-links">

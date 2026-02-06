@@ -32,9 +32,17 @@ const Footer = () => {
           <div className="footer-brand">
             <motion.div
               className="footer-logo"
+              style={{
+                fontFamily: 'var(--font-adore)',
+                fontSize: '1.8rem',
+                color: 'var(--accent)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
               whileHover={{ scale: 1.05 }}
             >
-              <span style={{ opacity: 0.8 }}>प्र</span> Pracharr
+              <span style={{ fontFamily: 'var(--font-kokila)', opacity: 0.8 }}>प्र-4</span> PRACHARR
             </motion.div>
             <p className="footer-description">
               We craft legacies through stories that refuse to be forgotten.
@@ -94,21 +102,21 @@ const Footer = () => {
               whileHover={{ y: -5, scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              📸
+              in
             </motion.a>
             <motion.a
               href="#"
               whileHover={{ y: -5, scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              💼
+              ig
             </motion.a>
             <motion.a
               href="#"
               whileHover={{ y: -5, scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              🐦
+              𝕏
             </motion.a>
           </div>
         </div>

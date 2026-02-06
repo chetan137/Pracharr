@@ -1,9 +1,7 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Testimonials = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = true; // Handled by parent scroll component
 
   const testimonials = [
     {
@@ -33,7 +31,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="section testimonials" ref={ref}>
+    <section id="testimonials" className="section testimonials">
       <div className="container">
         <div className="testimonials-wrapper">
           <motion.div
