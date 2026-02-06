@@ -113,7 +113,7 @@ const VideoShowcase = () => {
   return (
     <section ref={containerRef} className="video-showcase-section">
       <div className="video-sticky-container">
-        <h2 className="showcase-header">Featured Stories</h2>
+        <h2 className="showcase-header" style={{ position: 'relative', top: '1rem',  left: '1rem', zIndex: 10 }}>Featured Stories</h2>
         <div className="cards-stack">
           {videos.map((video, index) => (
             <VideoCard

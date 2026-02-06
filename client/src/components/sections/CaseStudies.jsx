@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 
 const CaseStudies = () => {
-  const isInView = true; // Handled by parent scroll component
+  const isInView = true;
 
   const caseStudies = [
     {
       title: 'TechVentures Rebrand',
       industry: 'Technology',
       description: 'Complete brand transformation that increased market perception by 340%',
+      youtubeId: 'dQw4w9WgXcQ', // Replace with actual video ID
       metrics: [
         { value: '340%', label: 'Brand Lift' },
         { value: '2.5M', label: 'Impressions' }
@@ -17,6 +18,7 @@ const CaseStudies = () => {
       title: 'Luxe Lifestyle Launch',
       industry: 'Luxury Retail',
       description: 'Premium lifestyle brand launch that captured the luxury market instantly',
+      youtubeId: 'jNQXAC9IVRw', // Replace with actual video ID
       metrics: [
         { value: '₹50L', label: 'Revenue' },
         { value: '180%', label: 'ROI' }
@@ -26,6 +28,7 @@ const CaseStudies = () => {
       title: 'GreenEarth Campaign',
       industry: 'Sustainability',
       description: 'Viral sustainability campaign that became a cultural movement',
+      youtubeId: '9bZkp7q19f0', // Replace with actual video ID
       metrics: [
         { value: '10M+', label: 'Views' },
         { value: '89%', label: 'Engagement' }
@@ -35,6 +38,7 @@ const CaseStudies = () => {
       title: 'FinTech Revolution',
       industry: 'Finance',
       description: 'Humanizing finance through storytelling that built unprecedented trust',
+      youtubeId: 'ScMzIvxBSi4', // Replace with actual video ID
       metrics: [
         { value: '500K', label: 'Users' },
         { value: '4.8★', label: 'Rating' }
@@ -71,20 +75,32 @@ const CaseStudies = () => {
               transition={{ delay: 0.2 + index * 0.15, duration: 0.6 }}
               whileHover={{ y: -10 }}
             >
-              <div className="case-study-image">
-                <motion.div
-                  style={{
-                    position: 'absolute',
-                    bottom: '20px',
-                    right: '20px',
-                    fontSize: '3rem',
-                    opacity: 0.3
-                  }}
-                  animate={{ rotate: [0, 10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity }}
-                >
-                  प्र-4
-                </motion.div>
+              {/* YouTube Video Thumbnail */}
+              <div className="case-study-video">
+                <div style={{
+                  position: 'relative',
+                  paddingBottom: '56.25%',
+                  height: 0,
+                  overflow: 'hidden',
+                  borderRadius: 'var(--radius-lg)',
+                  background: 'var(--accent-dark)'
+                }}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${study.youtubeId}?rel=0&modestbranding=1`}
+                    title={study.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      border: 'none'
+                    }}
+                  />
+                </div>
               </div>
 
               <div className="case-study-content">

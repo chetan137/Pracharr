@@ -3,13 +3,38 @@ import { motion } from 'framer-motion';
 const Testimonials = () => {
   const isInView = true; // Handled by parent scroll component
 
-  const testimonials = [
+  // YouTube video testimonials
+  const videoTestimonials = [
+    {
+      id: 1,
+      youtubeId: "LXb3EKWsInQ", // Placeholder: Creative Director interview
+      name: "Arjun Mehta",
+      role: "Founder & CEO",
+      company: "TechVentures India"
+    },
+    {
+      id: 2,
+      youtubeId: "5qap5aO4i9A", // Placeholder: Lofi Girl (as a calm branding example) or similar safe placeholder
+      name: "Priya Sharma",
+      role: "Marketing Director",
+      company: "Luxe Lifestyle"
+    },
+    {
+      id: 3,
+      youtubeId: "p7Qp3a5_D6g", // Placeholder: Another creative video
+      name: "Vikram Desai",
+      role: "Co-Founder",
+      company: "GreenEarth Solutions"
+    }
+  ];
+
+  const textTestimonials = [
     {
       name: 'Arjun Mehta',
       role: 'Founder & CEO',
       company: 'TechVentures India',
       initials: 'AM',
-      content: "Pracharr didn't just rebrand us — they redefined how we see ourselves. Our brand now commands the respect it deserves. The transformation was beyond our expectations.",
+      content: "Pracharr didn't just rebrand us — they redefined how we see ourselves. Our brand now commands the respect it deserves.",
       rating: 5
     },
     {
@@ -17,7 +42,7 @@ const Testimonials = () => {
       role: 'Marketing Director',
       company: 'Luxe Lifestyle',
       initials: 'PS',
-      content: "Working with Pracharr was transformative. They understood our vision before we could articulate it ourselves. Their creative instinct is unparalleled in the industry.",
+      content: "Working with Pracharr was transformative. They understood our vision before we could articulate it ourselves.",
       rating: 5
     },
     {
@@ -25,7 +50,7 @@ const Testimonials = () => {
       role: 'Co-Founder',
       company: 'GreenEarth Solutions',
       initials: 'VD',
-      content: "The campaign Pracharr created for us wasn't just successful — it became a cultural moment. That's the Pracharr difference. They don't just market, they create movements.",
+      content: "The campaign Pracharr created for us wasn't just successful — it became a cultural moment.",
       rating: 5
     }
   ];
@@ -53,14 +78,53 @@ const Testimonials = () => {
             <p>What our partners say about working with Pracharr.</p>
           </motion.div>
 
+          {/* Video Testimonials Section */}
+          <div className="video-testimonials-section">
+            <motion.h3
+              className="sub-heading"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.3 }}
+            >
+              Watch Their Stories
+            </motion.h3>
+            <div className="video-testimonials-grid">
+              {videoTestimonials.map((video, index) => (
+                <motion.div
+                  key={video.id}
+                  className="video-testimonial-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.2 + index * 0.15, duration: 0.6 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                >
+                  <div className="youtube-embed-wrapper">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0&modestbranding=1`}
+                      title={`Testimonial from ${video.name}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="video-testimonial-info">
+                    <h4>{video.name}</h4>
+                    <p>{video.role}, {video.company}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Text Testimonials */}
           <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
+            {textTestimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
                 className="testimonial-card"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + index * 0.15, duration: 0.8 }}
+                transition={{ delay: 0.4 + index * 0.15, duration: 0.8 }}
                 whileHover={{ y: -10 }}
               >
                 <p className="testimonial-content">"{testimonial.content}"</p>

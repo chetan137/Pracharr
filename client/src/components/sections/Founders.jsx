@@ -5,18 +5,18 @@ const Founders = () => {
 
   const founders = [
     {
-      name: 'Rahul Verma',
+      name: 'Ruhani Mehra',
       role: 'Founder & Creative Director',
-      initials: 'RV',
-      bio: 'A storyteller at heart, Rahul has spent 15 years turning brands into cultural phenomena. With a background in advertising and a passion for bold creativity, he founded Pracharr to challenge the mundane.',
+      initials: 'RM',
+      bio: 'Leads creative direction, brand voice, and storytelling. Every campaign carries intentionality, personality, and punch.',
       linkedin: '#',
       twitter: '#'
     },
     {
-      name: 'Ananya Kapoor',
-      role: 'Co-Founder & Strategy Head',
-      initials: 'AK',
-      bio: 'Ananya brings strategic brilliance that transforms creative ideas into business results. An MBA from IIM with experience at global agencies, she ensures every creative leap is grounded in solid strategy.',
+      name: 'Namit Gupta',
+      role: 'Co-Founder & Analytics Lead',
+      initials: 'NG',
+      bio: 'Leads sales strategy, analytics, and growth systems. Ensures creative work turns into measurable results.',
       linkedin: '#',
       twitter: '#'
     }
@@ -31,9 +31,9 @@ const Founders = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="tagline">The Team</span>
-          <h2>The Minds <span style={{ fontStyle: 'italic' }}>Behind</span></h2>
-          <p>Creative visionaries who believe in the power of bold ideas and relentless execution.</p>
+          <span className="tagline">WHO RUNS PRACHARR</span>
+          <h2>Founder-Led. Taste-Driven.<br/><span style={{ fontStyle: 'italic' }}>Results-Oriented.</span></h2>
+          <p>Different roles. Same obsession: building brands that stick.</p>
         </motion.div>
 
         <div className="founders-grid">
